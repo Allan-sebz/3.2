@@ -23,6 +23,7 @@ def main():
         description = input("Enter expense description (or 'done' to finish): ")
         if description.lower() == "done":
             break
+        # Validate description: must contain letters and spaces only, and cannot be empty
         cleaned_description = description.strip()
         if not cleaned_description or any(char.isdigit() for char in cleaned_description) or not all(
             char.isalpha() or char.isspace() for char in cleaned_description
