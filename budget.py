@@ -18,7 +18,7 @@ def main():
     print("\n--- Transaction Logging ---")
     print("Enter your expenses. Type 'done' when finished.\n")
     
-    # 2 Transactional Logging
+    # 2 Transactional Logging 
     while True:
         description = input("Enter expense description (or 'done' to finish): ")
         if description.lower() == "done":
