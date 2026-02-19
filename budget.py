@@ -1,5 +1,5 @@
 def main():
-    print("Hi Welcome to your Personal Financial Assistant!")
+    print("Hi there, Welcome to your Personal Financial Assistant!")
     
     # 1 Budget Initialization
     while True:
@@ -23,6 +23,12 @@ def main():
         description = input("Enter expense description (or 'done' to finish): ")
         if description.lower() == "done":
             break
+        cleaned_description = description.strip()
+        if not cleaned_description or any(char.isdigit() for char in cleaned_description) or not all(
+            char.isalpha() or char.isspace() for char in cleaned_description
+        ):
+            print("Description must contain letters and spaces only. Try again.")
+            continue
         
         try:
             amount = float(input("Enter expense amount: "))
