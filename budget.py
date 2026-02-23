@@ -28,13 +28,13 @@ def main():
         if not cleaned_description or any(char.isdigit() for char in cleaned_description) or not all(
             char.isalpha() or char.isspace() for char in cleaned_description
         ):
-            print("Description must contain letters and spaces only. Try again.")
+            print("Description must contain letters and spaces only. please try again.")
             continue
         
         try:
-            amount = float(input("Enter expense amount: "))
+            amount = float(input("Enter your expense amount: "))
             if amount < 0:
-                print("Expense cannot be negative. Try again.")
+                print("Expense cannot be a negative figure. Try again.")
                 continue
         except ValueError:
             print("Invalid amount. Please enter a number.")
