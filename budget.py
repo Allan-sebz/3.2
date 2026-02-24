@@ -20,7 +20,7 @@ def main():
     
     # 2 Transactional Logging 
     while True:
-        description = input("Enter expense description (or 'done' to finish): ")
+        description = input("Enter expense description (or 'done' to end): ")
         if description.lower() == "done":
             break
         # Validate description: must contain letters and spaces only, and cannot be empty
