@@ -67,3 +67,33 @@ def main():
         try:
             user_budget = float(input("\nEnter your budget for this period: "))
             if user_budget < BudgetTracker.MIN_BUDGET:
+                print(f"Budget must be at least {BudgetTracker.MIN_BUDGET}. Try again.")
+                continue
+            break
+        except ValueError:
+            print("Invalid input. Please enter a numeric value.")
+
+    # Create the tracker instance (The Object)
+    tracker = BudgetTracker(user_budget)
+
+    # --- Transaction Loop ---
+    print(f"\nStart entering expenses. Type '{BudgetTracker.EXIT_CODE}' to finish.")
+    
+    while True:
+        print("\n--- Categories ---")
+        for num, name in tracker.CATEGORIES.items():
+            print(f"  {num}. {name}")
+
+        try:
+            choice = int(input(f"Select category ({BudgetTracker.EXIT_CODE} to exit): "))
+        except ValueError:
+            print("Please enter a valid number.")
+            continue
+
+        if choice == BudgetTracker.EXIT_CODE:
+            break
+
+        if choice not in tracker.CATEGORIES:
+            print("Invalid choice. Please pick from the list.")
+            continue
+
