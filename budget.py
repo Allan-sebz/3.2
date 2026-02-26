@@ -117,3 +117,31 @@ def main():
             print(f"⚠️  Warning: Over budget by {abs(current_balance):.2f}!")
         else:
             print(f"✅  Remaining: {current_balance:.2f}")
+
+    # --- Final Summary ---
+    print("\n" + "=" * 40)
+    print("          FINANCIAL SUMMARY")
+    print("=" * 40)
+    print(f"Initial Budget : {tracker.budget:.2f}")
+    print(f"Total Spent    : {tracker.get_total_spent():.2f}")
+
+    balance = tracker.get_remaining_balance()
+    if balance < 0:
+        print(f"Deficit        : {abs(balance):.2f} ⚠️")
+    else:
+        print(f"Balance Left   : {balance:.2f} ✅")
+
+    print("\n--- Transaction Log ---")
+    if not tracker.expenses:
+        print("No records found.")
+    else:
+        # Loop through the list of Expense objects
+        for i, exp in enumerate(tracker.expenses, 1):
+            print(f"  {i}. {exp}") # Calls the __str__ method of Expense
+
+    print("=" * 40)
+    print("Stay financially savvy!")
+
+
+if __name__ == "__main__":
+    main()
