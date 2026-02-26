@@ -97,3 +97,23 @@ def main():
             print("Invalid choice. Please pick from the list.")
             continue
 
+        description = input(f"Description for '{tracker.CATEGORIES[choice]}': ")
+
+        try:
+            amount = float(input(f"Amount spent: "))
+            if amount <= 0:
+                print("Amount must be positive. Entry skipped.")
+                continue
+        except ValueError:
+            print("Invalid amount. Entry skipped.")
+            continue
+
+        # Use the tracker object to record the expense
+        tracker.add_expense(choice, description, amount)
+
+        # Real-time feedback using object methods
+        current_balance = tracker.get_remaining_balance()
+        if current_balance < 0:
+            print(f"⚠️  Warning: Over budget by {abs(current_balance):.2f}!")
+        else:
+            print(f"✅  Remaining: {current_balance:.2f}")
