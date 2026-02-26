@@ -37,3 +37,33 @@ class BudgetTracker:
         self.budget = budget
         self.expenses = []
 
+    def get_total_spent(self):
+        """Calculates total spending dynamically from the list of objects."""
+        return sum(exp.amount for exp in self.expenses)
+
+    def get_remaining_balance(self):
+        """Calculates the difference between budget and spending."""
+        return self.budget - self.get_total_spent()
+
+    def add_expense(self, category_index, description, amount):
+        """Creates an Expense object and adds it to the internal list."""
+        category_name = self.CATEGORIES.get(category_index, "Unknown")
+        new_expense = Expense(category_name, description, amount)
+        self.expenses.append(new_expense)
+        return new_expense
+
+
+def main():
+    """
+    The 'User Interface' layer.
+    Handles all print() and input() calls, delegating logic to the BudgetTracker.
+    """
+    print("=" * 40)
+    print("    Personal Financial Assistant (OOP)")
+    print("=" * 40)
+
+    # --- Initialize Budget ---
+    while True:
+        try:
+            user_budget = float(input("\nEnter your budget for this period: "))
+            if user_budget < BudgetTracker.MIN_BUDGET:
