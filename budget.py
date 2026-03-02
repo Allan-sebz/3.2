@@ -20,7 +20,7 @@ class BudgetTracker:
     The 'Engine' of the application. 
     Manages the budget logic, category definitions, and expense collection.
     """
-    # --- Constants to replace 'Magic Numbers' ---
+    # --- Constants replacing 'Magic Numbers' ---
     EXIT_CODE = 0
     MIN_BUDGET = 0.01
     
@@ -62,7 +62,7 @@ def main():
     print("    Personal Financial Assistant (OOP)")
     print("=" * 40)
 
-    # --- Initialize Budget ---
+    # --- Initialize the Budget ---
     while True:
         try:
             user_budget = float(input("\nEnter your budget for this period: "))
