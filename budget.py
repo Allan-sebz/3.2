@@ -26,7 +26,7 @@ class BudgetTracker:
     
     # Predefined categories stored within the class context
     CATEGORIES = {
-        1: "Sacks",
+        1: "Snacks",
         2: "Lunch",
         3: "Breakfast",
         4: "Supper",
