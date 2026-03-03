@@ -18,7 +18,7 @@ class Expense:
 class BudgetTracker:
     """
     The 'Engine' of the application. 
-    Manages the budget logic, category definitions, and expense collection.
+    Manages the logic in the budget, category definitions, and expense collection.
     """
     # --- Constants replacing 'Magic Numbers' ---
     EXIT_CODE = 0
