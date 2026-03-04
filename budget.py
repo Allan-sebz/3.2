@@ -114,7 +114,7 @@ def main():
         # Real-time feedback using object methods
         current_balance = tracker.get_remaining_balance()
         if current_balance < 0:
-            print(f"⚠️  Warning: Over budget by {abs(current_balance):.2f}!")
+            print(f"⚠️  Warning: Your budget is over by {abs(current_balance):.2f}!")
         else:
             print(f"✅  Remaining: {current_balance:.2f}")
 
